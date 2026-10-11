@@ -11,6 +11,13 @@
 
 <p>Browse schools and select one to view its details.</p>
 
+<label for="school-search">Search schools by name</label>
+<input id="school-search"
+       type="text"
+       @bind="searchTerm"
+       @bind:event="oninput"
+       placeholder="Enter a school name..." />
+
 @if (isLoading)
 {
     <p>Loading schools...</p>
@@ -19,16 +26,16 @@ else if (!string.IsNullOrEmpty(errorMessage))
 {
     <p role="alert">@errorMessage</p>
 }
-else if (schools.Count == 0)
+else if (filteredSchools.Count == 0)
 {
-    <p>No schools were found.</p>
+    <p>No schools match your search.</p>
 }
 else
 {
-    <p>Schools loaded: @schools.Count</p>
+    <p>Schools found: @filteredSchools.Count</p>
 
     <ul>
-        @foreach (var school in schools)
+        @foreach (var school in filteredSchools)
         {
             <li>@school.SchoolName</li>
         }
@@ -39,6 +46,15 @@ else
     private List<School> schools = new();
     private bool isLoading = true;
     private string errorMessage = string.Empty;
+    private string searchTerm = string.Empty;
+
+    // Filter by school name without distinguishing uppercase and lowercase.
+    private List<School> filteredSchools =>
+        schools
+            .Where(school => school.SchoolName.Contains(
+                searchTerm,
+                StringComparison.OrdinalIgnoreCase))
+            .ToList();
 
     // Load the school list when the page is initialized.
     protected override async Task OnInitializedAsync()
