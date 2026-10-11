@@ -6,58 +6,63 @@
 
 <PageTitle>School Directory</PageTitle>
 
-<h1>School Directory</h1>
+<div class="school-directory-page">
+    <header class="school-page-header">
+        <h1>School Directory</h1>
+        <p>Browse schools, search by name and select a school to view its details.</p>
+    </header>
 
-<p>Browse schools and select one to view its details.</p>
-
-<label for="school-search">Search schools by name</label>
-<input id="school-search"
-       type="text"
-       @bind="searchTerm"
-       @bind:event="oninput"
-       placeholder="Enter a school name..." />
-
-@if (isLoading)
-{
-    <p>Loading schools...</p>
-}
-else if (!string.IsNullOrEmpty(errorMessage))
-{
-    <p role="alert">@errorMessage</p>
-}
-else
-{
-    <div class="school-directory">
-        <section class="school-list">
-            <h2>Schools (@filteredSchools.Count)</h2>
-
-            @if (filteredSchools.Count == 0)
-            {
-                <p>No schools match your search.</p>
-            }
-            else
-            {
-                @foreach (var school in filteredSchools)
-                {
-                    <SchoolCard School="school"
-                                OnSelect="HandleSchoolSelected" />
-                }
-            }
-        </section>
-
-        <section class="school-information">
-            @if (selectedSchool is not null)
-            {
-                <SchoolDetails School="selectedSchool" />
-            }
-            else
-            {
-                <h2>School Details</h2>
-                <p>Select a school to view its details.</p>
-            }
-        </section>
+    <div class="school-search">
+        <label for="school-search">Search schools by name</label>
+        <input id="school-search"
+               type="text"
+               @bind="searchTerm"
+               @bind:event="oninput"
+               placeholder="Enter a school name..." />
     </div>
-}
+
+    @if (isLoading)
+    {
+        <p>Loading schools...</p>
+    }
+    else if (!string.IsNullOrEmpty(errorMessage))
+    {
+        <p role="alert">@errorMessage</p>
+    }
+    else
+    {
+        <div class="school-directory">
+            <section class="school-list">
+                <h2>Schools (@filteredSchools.Count)</h2>
+
+                @if (filteredSchools.Count == 0)
+                {
+                    <p>No schools match your search.</p>
+                }
+                else
+                {
+                    @foreach (var school in filteredSchools)
+                    {
+                        <SchoolCard School="school"
+                                    OnSelect="HandleSchoolSelected" />
+                    }
+                }
+            </section>
+
+            <section class="school-information">
+                @if (selectedSchool is not null)
+                {
+                    <SchoolDetails School="selectedSchool" />
+                }
+                else
+                {
+                    <h2>School Details</h2>
+                    <p>Select a school to view its details.</p>
+                }
+            </section>
+        </div>
+    }
+</div>
 
 @code {
     private List<School> schools = new();

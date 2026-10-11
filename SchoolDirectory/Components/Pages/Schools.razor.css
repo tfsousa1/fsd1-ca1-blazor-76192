@@ -1,0 +1,200 @@
+/* School directory page */
+.school-directory-page {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 40px 24px 60px;
+    color: #1e293b;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.school-page-header {
+    margin-bottom: 28px;
+}
+
+.school-page-header h1 {
+    margin-bottom: 8px;
+    color: #17365d;
+    font-size: 2.25rem;
+    font-weight: 750;
+    letter-spacing: -1px;
+}
+
+.school-page-header p {
+    color: #64748b;
+    font-size: 1rem;
+}
+
+.school-search {
+    margin-bottom: 28px;
+}
+
+.school-search label {
+    display: block;
+    margin-bottom: 8px;
+    color: #334155;
+    font-weight: 600;
+}
+
+.school-search input {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 13px 16px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    background: #fff;
+    color: #1e293b;
+    font: inherit;
+    outline: none;
+}
+
+.school-search input:focus {
+    border-color: #3974bd;
+    box-shadow: 0 0 0 3px rgb(57 116 189 / 15%);
+}
+
+.school-directory {
+    display: grid;
+    grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+    align-items: start;
+    gap: 24px;
+}
+
+.school-list,
+.school-information {
+    min-width: 0;
+    padding: 24px;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    background: #fff;
+    box-shadow: 0 6px 20px rgb(15 23 42 / 5%);
+}
+
+.school-list > h2,
+.school-information h2 {
+    margin: 0 0 18px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e2e8f0;
+    color: #17365d;
+    font-size: 1.2rem;
+}
+
+/* SchoolCard is a separate Razor component. */
+::deep .school-card {
+    margin-bottom: 12px;
+    padding: 17px;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    background: #fff;
+    transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+::deep .school-card:hover {
+    border-color: #9bbce5;
+    box-shadow: 0 4px 12px rgb(15 23 42 / 6%);
+}
+
+::deep .school-card h3 {
+    margin: 0 0 8px;
+    color: #17365d;
+    font-size: 1rem;
+    line-height: 1.45;
+    overflow-wrap: anywhere;
+}
+
+::deep .school-card p {
+    margin-bottom: 14px;
+    color: #64748b;
+    font-size: 0.9rem;
+    overflow-wrap: anywhere;
+}
+
+::deep .school-card button {
+    padding: 9px 14px;
+    border: 1px solid #cbdcf1;
+    border-radius: 8px;
+    background: #eff6ff;
+    color: #1d4f91;
+    font: inherit;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+::deep .school-card button:hover {
+    background: #dceafe;
+}
+
+/* Details component */
+.school-information {
+    position: sticky;
+    top: 24px;
+}
+
+::deep .school-details dl {
+    display: grid;
+    grid-template-columns: minmax(105px, 0.7fr) minmax(0, 1.3fr);
+    margin: 0;
+}
+
+::deep .school-details dt,
+::deep .school-details dd {
+    min-width: 0;
+    margin: 0;
+    padding: 12px 0;
+    border-bottom: 1px solid #edf1f6;
+    overflow-wrap: anywhere;
+}
+
+::deep .school-details dt {
+    padding-right: 14px;
+    color: #64748b;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+::deep .school-details dd {
+    color: #1e293b;
+    font-size: 0.9rem;
+}
+
+.school-information > p {
+    color: #64748b;
+}
+
+@media (max-width: 800px) {
+    .school-directory-page {
+        padding: 28px 16px 40px;
+    }
+
+    .school-directory {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .school-information {
+        position: static;
+    }
+}
+
+@media (max-width: 480px) {
+    .school-page-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .school-list,
+    .school-information {
+        padding: 16px;
+    }
+
+    ::deep .school-details dl {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    ::deep .school-details dt {
+        padding-bottom: 0;
+        border-bottom: none;
+    }
+
+    ::deep .school-details dd {
+        padding-top: 2px;
+    }
+}
