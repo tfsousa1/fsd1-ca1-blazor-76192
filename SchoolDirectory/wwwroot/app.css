@@ -1,3 +1,4 @@
+
 /* Global styles */
 :root {
     font-family: "Segoe UI", Arial, sans-serif;
@@ -44,9 +45,9 @@ h1 {
     letter-spacing: -0.04em;
 }
 
-h1:focus {
-    outline: none;
-}
+    h1:focus {
+        outline: none;
+    }
 
 h2 {
     margin-bottom: 1rem;
@@ -66,6 +67,108 @@ p {
     color: #64748b;
 }
 
+/* Main application layout and navigation */
+.app-shell {
+    min-height: 100vh;
+}
+
+.app-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1rem 5%;
+    background: #17365d;
+    color: #ffffff;
+}
+
+.app-brand {
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.app-navigation {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+    .app-navigation a {
+        padding: 0.65rem 0.9rem;
+        border-radius: 8px;
+        color: #ffffff;
+        text-decoration: none;
+        transition: background 160ms ease, color 160ms ease;
+    }
+
+        .app-navigation a:hover,
+        .app-navigation a.active {
+            background: #ffffff;
+            color: #17365d;
+        }
+
+.app-main {
+    padding: 1rem 0;
+}
+
+/* Home page */
+.home-page {
+    max-width: 900px;
+    margin: 4rem auto;
+    padding: 2rem;
+}
+
+.home-eyebrow {
+    margin-bottom: 1rem;
+    color: #526f96;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+}
+
+.home-page h1 {
+    max-width: 800px;
+    margin-bottom: 1rem;
+    color: #142d4e;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    line-height: 1.15;
+}
+
+.home-page > p:not(.home-eyebrow) {
+    max-width: 650px;
+    margin-bottom: 1.25rem;
+    color: #52647c;
+    line-height: 1.7;
+}
+
+.home-button {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.85rem 1.2rem;
+    border: 1px solid #17365d;
+    border-radius: 8px;
+    background: #17365d;
+    color: #ffffff;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 160ms ease, border-color 160ms ease;
+}
+
+    .home-button:hover {
+        border-color: #254c7a;
+        background: #254c7a;
+        color: #ffffff;
+    }
+
+    .home-button:focus-visible,
+    .app-navigation a:focus-visible {
+        outline: 3px solid #8fb4e2;
+        outline-offset: 3px;
+    }
+
 /* School directory page */
 .school-directory-page {
     width: min(1180px, calc(100% - 48px));
@@ -77,10 +180,10 @@ p {
     margin-bottom: 28px;
 }
 
-.school-page-header p {
-    margin-bottom: 0;
-    font-size: 1rem;
-}
+    .school-page-header p {
+        margin-bottom: 0;
+        font-size: 1rem;
+    }
 
 /* Search */
 .school-search {
@@ -90,36 +193,36 @@ p {
     margin-bottom: 28px;
 }
 
-.school-search label {
-    display: block;
-    margin-bottom: 8px;
-    color: #334155;
-    font-size: 0.9rem;
-    font-weight: 650;
-}
+    .school-search label {
+        display: block;
+        margin-bottom: 8px;
+        color: #334155;
+        font-size: 0.9rem;
+        font-weight: 650;
+    }
 
-.school-search input {
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
-    padding: 13px 16px;
-    border: 1px solid #d7e0eb;
-    border-radius: 10px;
-    outline: none;
-    background: #fff;
-    color: #1e293b;
-    box-shadow: 0 2px 5px rgb(15 23 42 / 3%);
-    transition: border-color 160ms ease, box-shadow 160ms ease;
-}
+    .school-search input {
+        display: block;
+        width: 100%;
+        box-sizing: border-box;
+        padding: 13px 16px;
+        border: 1px solid #d7e0eb;
+        border-radius: 10px;
+        outline: none;
+        background: #ffffff;
+        color: #1e293b;
+        box-shadow: 0 2px 5px rgb(15 23 42 / 3%);
+        transition: border-color 160ms ease, box-shadow 160ms ease;
+    }
 
-.school-search input::placeholder {
-    color: #94a3b8;
-}
+        .school-search input::placeholder {
+            color: #94a3b8;
+        }
 
-.school-search input:focus {
-    border-color: #3974bd;
-    box-shadow: 0 0 0 3px rgb(57 116 189 / 14%);
-}
+        .school-search input:focus {
+            border-color: #3974bd;
+            box-shadow: 0 0 0 3px rgb(57 116 189 / 14%);
+        }
 
 /* Two-column directory layout */
 .school-directory {
@@ -135,17 +238,17 @@ p {
     padding: 24px;
     border: 1px solid #e2e8f0;
     border-radius: 16px;
-    background: #fff;
+    background: #ffffff;
     box-shadow: 0 5px 18px rgb(15 23 42 / 4%);
 }
 
-.school-list > h2 {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-bottom: 16px;
-    border-bottom: 1px solid #edf1f6;
-}
+    .school-list > h2 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-bottom: 16px;
+        border-bottom: 1px solid #edf1f6;
+    }
 
 /* Individual school cards */
 .school-card {
@@ -153,50 +256,50 @@ p {
     padding: 17px;
     border: 1px solid #e2e8f0;
     border-radius: 12px;
-    background: #fff;
+    background: #ffffff;
     transition: border-color 160ms ease, box-shadow 160ms ease;
 }
 
-.school-card:last-child {
-    margin-bottom: 0;
-}
+    .school-card:last-child {
+        margin-bottom: 0;
+    }
 
-.school-card:hover {
-    border-color: #a9c5e8;
-    box-shadow: 0 4px 12px rgb(15 23 42 / 5%);
-}
+    .school-card:hover {
+        border-color: #a9c5e8;
+        box-shadow: 0 4px 12px rgb(15 23 42 / 5%);
+    }
 
-.school-card p {
-    margin-bottom: 14px;
-    color: #64748b;
-    font-size: 0.9rem;
-    overflow-wrap: anywhere;
-}
+    .school-card p {
+        margin-bottom: 14px;
+        color: #64748b;
+        font-size: 0.9rem;
+        overflow-wrap: anywhere;
+    }
 
-.school-card button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 8px 13px;
-    border: 1px solid #cbdcf1;
-    border-radius: 8px;
-    background: #eff6ff;
-    color: #1d4f91;
-    font-size: 0.85rem;
-    font-weight: 650;
-    cursor: pointer;
-    transition: background 160ms ease, border-color 160ms ease;
-}
+    .school-card button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 13px;
+        border: 1px solid #cbdcf1;
+        border-radius: 8px;
+        background: #eff6ff;
+        color: #1d4f91;
+        font-size: 0.85rem;
+        font-weight: 650;
+        cursor: pointer;
+        transition: background 160ms ease, border-color 160ms ease;
+    }
 
-.school-card button:hover {
-    border-color: #8fb4e2;
-    background: #dceafe;
-}
+        .school-card button:hover {
+            border-color: #8fb4e2;
+            background: #dceafe;
+        }
 
-.school-card button:focus-visible {
-    outline: 3px solid rgb(57 116 189 / 35%);
-    outline-offset: 2px;
-}
+        .school-card button:focus-visible {
+            outline: 3px solid rgb(57 116 189 / 35%);
+            outline-offset: 2px;
+        }
 
 /* School details */
 .school-information {
@@ -204,11 +307,11 @@ p {
     top: 24px;
 }
 
-.school-details h2,
-.school-information > h2 {
-    padding-bottom: 16px;
-    border-bottom: 1px solid #edf1f6;
-}
+    .school-details h2,
+    .school-information > h2 {
+        padding-bottom: 16px;
+        border-bottom: 1px solid #edf1f6;
+    }
 
 .school-details dl {
     display: grid;
@@ -238,10 +341,10 @@ p {
     overflow-wrap: anywhere;
 }
 
-.school-details dt:last-of-type,
-.school-details dd:last-of-type {
-    border-bottom: none;
-}
+    .school-details dt:last-of-type,
+    .school-details dd:last-of-type {
+        border-bottom: none;
+    }
 
 .school-information > p {
     margin-bottom: 0;
@@ -274,20 +377,20 @@ p {
 }
 
 .blazor-error-boundary {
-    background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTYiIGhlaWdodD0iNDkiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bWxpbms9Imh0dHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBvdmVyZmxvdz0iaGlkZGVuIj48ZGVmcz48Y2xpcFBhdGggaWQ9ImNsaXAwIj48cmVjdCB4PSIyMzUiIHk9IjUxIiB3aWR0aD0iNTYiIGhlaWdodD0iNDkiLz48L2NsaXBQYXRoPjwvZGVmcz48ZyBjbGlwLXBhdGg9InVybCgjY2xpcDApIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMjM1IC01MSkiPjxwYXRoIGQ9Ik0yNjMuNTA2IDUxQzI2NC43MTcgNTEgMjY1LjgxMyA1MS40ODM3IDI2Ni42MDYgNTIuMjY1OEwyNjcuMDUyIDUyLjc5ODcgMjY3LjUzOSA1My42MjgzIDI5MC4xODUgOTIuMTgzMTMgMjkwLjU0NSA5Mi43OTUgMjkwLjY1NiA5Mi45OTZDMTkwLjg3NyA5My41MTMgMjkxIDk0LjA4MTUgMjkxIDk0LjY3ODIgMjkxIDk3LjA2NTEgMjg5LjAzOCA5OSAyODYuNjE3IDk5TDI0MC4zODMgOTlDMjM3Ljk2MyA5OSAyMzYgOTcuMDY1MSAyMzYgOTQuNjc4MiAyMzYgOTQuMzc5OSAyMzYuMDMxIDk0LjA4ODYgMjM2LjA4OSAxMDMuODA3MkwyMzYuMzM4IDkzLjAxNjIgMjM2Ljg1OCA5Mi4xMzE0IDI1OS40NzMgNTMuNjI5NCAyNTkuOTYxIDUyLjc5ODUgMjYwLjQwNyA1Mi4yNjU4QzI2MS4yIDUxLjQ4MzcgMjYyLjI5NiA1MSAyNjMuNTA2IDUxWk0yNjMuNTg2IDY2LjAxODNDMjYwLjczNyA2Ni4wMTgzIDI1OS4zMTMgNjcuMTI0NSAyNTkuMzEzIDY5LjMzNyAyNTkuMzEzIDY5LjYxMDIgMjU5LjMzMiA2OS44NjA4IDI1OS4zNzEgNzAuMDg4N0wyNjEuNzk1IDg0LjAxNjEgMjY1LjM4IDg0LjAxNjEgMjY3LjgyMSA2OS43NDc1QzI2Ny44NiA2OS43MzA5IDI2Ny44NzkgNjkuNTg3NyAyNjcuODc5IDY5LjMxNzkgMjY3Ljg3OSA2Ny4xMTgyIDI2Ni40NDggNjYuMDE4MyAyNjMuNTg2IDY2LjAxODNaTTI2My41NzYgODYuMDU0N0MyNjEuMDQ5IDg2LjA1NDcgMjU5Ljc4NiA4Ny4zMDA1IDI1OS43ODYgODkuNzkyMSAyNTkuNzg2IDkyLjI4MzcgMjYxLjA0OSA5My41Mjk1IDI2My41NzYgOTMuNTI5NSAyNjYuMTE2IDkzLjUyOTUgMjY3LjM4NyA5Mi4yODM3IDI2Ny4zODcgODkuNzkyMSAyNjcuMzg3IDg3LjMwMDUgMjY2LjExNiA4Ni4wNTQ3IDI2My41NzYgODYuMDU0N1oiIGZpbGw9IiNGRkU1MDAiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvZz48L3N2Zz4=) no-repeat 1rem/1.8rem, #b32121;
+    background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTYiIGhlaWdodD0iNDkiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bWxuczpsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiBvdmVyZmxvdz0iaGlkZGVuIj48ZGVmcz48Y2xpcFBhdGggaWQ9ImNsaXAwIj48cmVjdCB4PSIyMzUiIHk9IjUxIiB3aWR0aD0iNTYiIGhlaWdodD0iNDkiLz48L2NsaXBQYXRoPjwvZGVmcz48ZyBjbGlwLXBhdGg9InVybCgjY2xpcDApIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMjM1IC01MSkiPjxwYXRoIGQ9Ik0yNjMuNTA2IDUxQzI2NC43MTcgNTEgMjY1LjgxMyA1MS40ODM3IDI2Ni42MDYgNTIuMjY1OEwyNjcuMDUyIDUyLjc5ODcgMjY3LjUzOSA1My42MjgzIDI5MC4xODUgOTIuMTgzMTMgMjkwLjU0NSA5Mi43OTUgMjkwLjY1NiA5Mi45OTZDMTkwLjg3NyA5My41MTMgMjkxIDk0LjA4MTUgMjkxIDk0LjY3ODIgMjkxIDk3LjA2NTEgMjg5LjAzOCA5OSAyODYuNjE3IDk5TDI0MC4zODMgOTlDMjM3Ljk2MyA5OSAyMzYgOTcuMDY1MSAyMzYgOTQuNjc4MiAyMzYgOTQuMzc5OSAyMzYuMDMxIDk0LjA4ODYgMjM2LjA4OSAxMDMuODA3MkwyMzYuMzM4IDkzLjAxNjIgMjM2Ljg1OCA5Mi4xMzE0IDI1OS40NzMgNTMuNjI5NCAyNTkuOTYxIDUyLjc5ODUgMjYwLjQwNyA1Mi4yNjU4QzI2MS4yIDUxLjQ4MzcgMjYyLjI5NiA1MSAyNjMuNTA2IDUxWk0yNjMuNTg2IDY2LjAxODNDMjYwLjczNyA2Ni4wMTgzIDI1OS4zMTMgNjcuMTI0NSAyNTkuMzEzIDY5LjMzNyAyNTkuMzEzIDY5LjYxMDIgMjU5LjMzMiA2OS44NjA4IDI1OS4zNzEgNzAuMDg4N0wyNjEuNzk1IDg0LjAxNjEgMjY1LjM4IDg0LjAxNjEgMjY3LjgyMSA2OS43NDc1QzI2Ny44NiA2OS43MzA5IDI2Ny44NzkgNjkuNTg3NyAyNjcuODc5IDY5LjMxNzkgMjY3Ljg3OSA2Ny4xMTgyIDI2Ni40NDggNjYuMDE4MyAyNjMuNTg2IDY2LjAxODNaTTI2My41NzYgODYuMDU0N0MyNjEuMDQ5IDg2LjA1NDcgMjU5Ljc4NiA4Ny4zMDA1IDI1OS43ODYgODkuNzkyMSAyNTkuNzg2IDkyLjI4MzcgMjYxLjA0OSA5My41Mjk1IDI2My41NzYgOTMuNTI5NSAyNjYuMTE2IDkzLjUyOTUgMjY3LjM4NyA5Mi4yODM3IDI2Ny4zODcgODkuNzkyMSAyNjcuMzg3IDg3LjMwMDUgMjY2LjExNiA4Ni4wNTQ3IDI2My41NzYgODYuMDU0N1oiIGZpbGw9IiNGRkU1MDAiIGZpbGwtcnVsZT0iZXZlbm9kZCIvPjwvZ3></svg>) no-repeat 1rem/1.8rem, #b32121;
     padding: 1rem 1rem 1rem 3.7rem;
-    color: white;
+    color: #ffffff;
 }
 
-.blazor-error-boundary::after {
-    content: "An error has occurred.";
-}
+    .blazor-error-boundary::after {
+        content: "An error has occurred.";
+    }
 
 .darker-border-checkbox.form-check-input {
     border-color: #929292;
 }
 
-/* Responsive layout */
+/* Responsive directory layout */
 @media (max-width: 800px) {
     .school-directory-page {
         width: min(100% - 32px, 600px);
@@ -327,5 +430,17 @@ p {
 
     .school-details dd {
         padding-top: 2px;
+    }
+}
+
+@media (max-width: 600px) {
+    .app-header {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .home-page {
+        margin: 2rem auto;
+        padding: 1.5rem;
     }
 }
