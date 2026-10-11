@@ -1,4 +1,3 @@
-
 @page "/schools"
 @rendermode InteractiveServer
 @using SchoolDirectory.Models
@@ -34,12 +33,13 @@ else
 {
     <p>Schools found: @filteredSchools.Count</p>
 
-    <ul>
+    <div class="school-list">
         @foreach (var school in filteredSchools)
         {
-            <li>@school.SchoolName</li>
+            <SchoolCard School="school"
+                        OnSelect="HandleSchoolSelected" />
         }
-    </ul>
+    </div>
 }
 
 @code {
@@ -48,7 +48,10 @@ else
     private string errorMessage = string.Empty;
     private string searchTerm = string.Empty;
 
-    // Filter by school name without distinguishing uppercase and lowercase.
+    // Store the school selected by a child component.
+    private School? selectedSchool;
+
+    // Filter schools by name without distinguishing uppercase and lowercase.
     private List<School> filteredSchools =>
         schools
             .Where(school => school.SchoolName.Contains(
@@ -71,5 +74,11 @@ else
         {
             isLoading = false;
         }
+    }
+
+    // Receive the selected school from SchoolCard.
+    private void HandleSchoolSelected(School school)
+    {
+        selectedSchool = school;
     }
 }
