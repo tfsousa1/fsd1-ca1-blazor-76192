@@ -1,0 +1,25 @@
+
+@using SchoolDirectory.Models
+
+<div class="school-card">
+    <h3>@School.SchoolName</h3>
+    <p>@School.Address</p>
+
+    <button type="button" @onclick="SelectSchool">
+        View details
+    </button>
+</div>
+
+@code {
+    [Parameter]
+    public School School { get; set; } = new();
+
+    [Parameter]
+    public EventCallback<School> OnSelect { get; set; }
+
+    // Notify the parent component when this school is selected.
+    private async Task SelectSchool()
+    {
+        await OnSelect.InvokeAsync(School);
+    }
+}
