@@ -1,0 +1,36 @@
+@using SchoolDirectory.Models
+
+@if (School is not null)
+{
+    <section class="school-details">
+        <h2>School Details</h2>
+
+        <dl>
+            <dt>School ID</dt>
+            <dd>@School.SchoolId</dd>
+
+            <dt>School Name</dt>
+            <dd>@School.SchoolName</dd>
+
+            <dt>Address</dt>
+            <dd>@School.Address</dd>
+
+            <dt>Phone Number</dt>
+            <dd>@School.PhoneNo</dd>
+
+            <dt>Email Address</dt>
+            <dd>@School.EmailAddress</dd>
+
+            <dt>Proprietor</dt>
+            <dd>@School.ProprietorFullName</dd>
+
+            <dt>Head of School</dt>
+            <dd>@School.HeadFullName</dd>
+        </dl>
+    </section>
+}
+
+@code {
+    [Parameter]
+    public School? School { get; set; }
+}

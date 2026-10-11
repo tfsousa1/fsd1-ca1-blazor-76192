@@ -25,20 +25,37 @@ else if (!string.IsNullOrEmpty(errorMessage))
 {
     <p role="alert">@errorMessage</p>
 }
-else if (filteredSchools.Count == 0)
-{
-    <p>No schools match your search.</p>
-}
 else
 {
-    <p>Schools found: @filteredSchools.Count</p>
+    <div class="school-directory">
+        <section class="school-list">
+            <h2>Schools (@filteredSchools.Count)</h2>
 
-    <div class="school-list">
-        @foreach (var school in filteredSchools)
-        {
-            <SchoolCard School="school"
-                        OnSelect="HandleSchoolSelected" />
-        }
+            @if (filteredSchools.Count == 0)
+            {
+                <p>No schools match your search.</p>
+            }
+            else
+            {
+                @foreach (var school in filteredSchools)
+                {
+                    <SchoolCard School="school"
+                                OnSelect="HandleSchoolSelected" />
+                }
+            }
+        </section>
+
+        <section class="school-information">
+            @if (selectedSchool is not null)
+            {
+                <SchoolDetails School="selectedSchool" />
+            }
+            else
+            {
+                <h2>School Details</h2>
+                <p>Select a school to view its details.</p>
+            }
+        </section>
     </div>
 }
 
@@ -47,8 +64,6 @@ else
     private bool isLoading = true;
     private string errorMessage = string.Empty;
     private string searchTerm = string.Empty;
-
-    // Store the school selected by a child component.
     private School? selectedSchool;
 
     // Filter schools by name without distinguishing uppercase and lowercase.
