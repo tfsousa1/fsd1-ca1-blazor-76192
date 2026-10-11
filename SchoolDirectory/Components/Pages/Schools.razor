@@ -1,9 +1,59 @@
 
 @page "/schools"
 @rendermode InteractiveServer
+@using SchoolDirectory.Models
+@using SchoolDirectory.Services
+@inject SchoolService SchoolService
 
 <PageTitle>School Directory</PageTitle>
 
 <h1>School Directory</h1>
 
 <p>Browse schools and select one to view its details.</p>
+
+@if (isLoading)
+{
+    <p>Loading schools...</p>
+}
+else if (!string.IsNullOrEmpty(errorMessage))
+{
+    <p role="alert">@errorMessage</p>
+}
+else if (schools.Count == 0)
+{
+    <p>No schools were found.</p>
+}
+else
+{
+    <p>Schools loaded: @schools.Count</p>
+
+    <ul>
+        @foreach (var school in schools)
+        {
+            <li>@school.SchoolName</li>
+        }
+    </ul>
+}
+
+@code {
+    private List<School> schools = new();
+    private bool isLoading = true;
+    private string errorMessage = string.Empty;
+
+    // Load the school list when the page is initialized.
+    protected override async Task OnInitializedAsync()
+    {
+        try
+        {
+            schools = await SchoolService.GetSchoolsAsync();
+        }
+        catch (Exception)
+        {
+            errorMessage = "Unable to load schools. Please try again later.";
+        }
+        finally
+        {
+            isLoading = false;
+        }
+    }
+}
